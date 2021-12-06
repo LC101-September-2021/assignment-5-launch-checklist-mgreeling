@@ -44,19 +44,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         copilot.textContent = `Co-pilot ${copilot} is ready for launch`;
         
         if (fuelLevel < 10000) {
-            launchStatus.style.color = "rgb(199, 37, 78)";
             launchStatus.textContent = "Shuttle Not Ready for Launch";
             fuelStatus.textContent = `Fuel level too low for launch`;
         } else if (cargoLevel > 10000) {
-            launchStatus.style.color = "rgb(199, 37, 78)";
             launchStatus.textContent = "Shuttle Not Ready for Launch";
-            fuelStatus.textContent = `Fuel level high enough for launch`;
             cargoStatus.textContent = `Cargo mass too heavy for launch`;
         } else {
-            launchStatus.style.color = "rgb(65, 159, 106)";
             launchStatus.textContent = "Shuttle is Ready for Launch";
-            fuelStatus.textContent = `Fuel level high enough for launch`;
-            cargoStatus.textContent = `Cargo mass low enough for launch`;
         }
     });
 };
@@ -64,16 +58,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
 
 async function myFetch() {
-    let planetsReturned;
+    let planetsReturned =;
 
-    planetsReturned = await fetch().then( function(response) {
-        });
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+      return response.json();
+    });
 
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+    let randomPlanet = Math.floor((Math.random() * planets.length);
+
+    return randomPlanet;
+    
 }
+
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
