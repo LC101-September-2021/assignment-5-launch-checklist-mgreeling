@@ -102,7 +102,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass) {
         
 }
 
-// retrieve planet list.
+
 async function myFetch() {
     let planetsReturned;
 
@@ -113,7 +113,7 @@ async function myFetch() {
     return planetsReturned;
 }
 
-// choose a random planet.
+
 function pickPlanet(planets) {
     let planet = Math.floor(Math.random() * planets.length);
 
